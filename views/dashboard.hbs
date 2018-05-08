@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/javascripts/data.js">
+
+<h3>Hello {{user.first}} welcome to the fantasy football cheat sheet.</h3>
+
+
+<div>
+  <h3>Top players by pass yards</h3>
+  <ul class="top-five-by-pass-yds">
+
+  </ul>
+</div>
+
+<div>
+  <h3>Top players by rush yards</h3>
+  <ul class="top-five-by-rush-yds">
+
+  </ul>
+</div>
+
+
+
+{{#each topFiveByPassYds}}
+  <h1>{{this}}</h1>
+{{/each}}

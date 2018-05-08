@@ -1,2 +1,27 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<form action="/signup" method="POST">
+  <div class="form-container">
+    <h1 class="form-title">Sign up for free fantasy stats!</h1>
+    <div class="container">
+      <input type="text" name="first" class="text-field" placeholder="First Name">
+    </div>
+
+    <div class="container">
+      <input type="text" name="last" class="text-field" placeholder="Last Name">
+    </div>
+
+    <div class="container">
+      <input type="text" name="username" class="text-field" placeholder="Username">
+    </div>    
+
+    <div class="container">
+      <input type="password" name="password" class="text-field" placeholder="Password">
+    </div>
+
+
+    <button class="submit-button">Submit</button>
+  </div>
+
+    {{#if message}}
+      <h3 class="sign-up-error-message">{{message}}</h3>
+    {{/if}}
+</form>

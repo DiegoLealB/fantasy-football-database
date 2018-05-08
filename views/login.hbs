@@ -1,0 +1,14 @@
+<form action="/login" method="POST">
+ <div class="form-container">
+    <h1 class="login-header">Sign in</h1>
+    <input type="text" name="username" placeholder="Username" class="login-field">
+    <input type="password" name="password" placeholder="Password" class="login-field">
+    <input type="submit" value="Log In" class="submit-button">
+    <h3 class="login-text">If you dont have an account already, <a href="/signup">Sign up</a></h3>
+ </div>
+ {{#if message}}
+   <h3 class="sign-up-error-message">{{ message }}</h3>
+ {{/if}}
+ <div>
+ </div>
+</form>
