@@ -22,7 +22,7 @@ const flash         = require("connect-flash");
 
 mongoose.Promise = Promise;
 mongoose
-.connect('mongodb://localhost/fantasy-football-database', {useMongoClient: true})
+.connect(process.env.MONGOURI, {useMongoClient: true})
 .then(() => {
   console.log('Connected to Mongo!')
 }).catch(err => {

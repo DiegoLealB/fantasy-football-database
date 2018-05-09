@@ -1,13 +1,25 @@
 body {
   font: 14px 'Helvetica'; }
 
-a {
-  color: #00B7FF; }
+a:link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #3778be; }
+
+a:visited {
+  text-decoration: none;
+  font-weight: bold;
+  color: #6169db; }
+
+a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #449DFC; }
 
 .navbar {
   display: block;
   position: fixed;
-  background: #039;
+  background: #064283;
   width: 100vw;
   height: 60px;
   left: 0;
@@ -32,7 +44,7 @@ a {
   font-size: 20px; }
 
 .background {
-  background-color: #6CF; }
+  background-color: #FFF; }
 
 .logo {
   width: 70px;
@@ -91,7 +103,7 @@ a {
 
 .submit-button {
   width: 440px;
-  background-color: #039;
+  background-color: #3778be;
   color: white;
   border: none;
   border-radius: 5px;
@@ -99,6 +111,9 @@ a {
   height: 50px;
   display: block;
   margin: 20px auto; }
+
+.submit-button:hover {
+  background-color: #449DFC; }
 
 .form-title {
   text-align: center;
@@ -126,5 +141,27 @@ a {
 
 .login-text {
   text-align: center; }
+
+.no-search {
+  text-align: center;
+  color: white;
+  display: block;
+  margin: 100px 0 0 0;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+
+.list-container {
+  width: 200px;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 5px;
+  margin: 10px;
+  float: left; }
+
+.greeting {
+  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+  display: block;
+  margin: 30px 10px 10px 10px; }
 
 /*# sourceMappingURL=style.css.map */

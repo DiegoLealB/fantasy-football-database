@@ -65,9 +65,7 @@ router.post("/signup", (req, res, next) => {
 
 router.get("/login", (req, res, next) => {
   res.render("login"
-  // ,{message: "Invalid username or password"}
-
-);
+  );
 });
 
 router.post("/login", passport.authenticate("local", {
@@ -85,6 +83,19 @@ router.get('/logout', (req, res) => {
   req.logout();
   res.redirect("/login");
 });
-      
+
+router.get('/player/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  res.render('player', { user: req.user })
+});
+
+router.get('/players/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  const searchTerm = req.query.playerSearchBar;
+  if (!searchTerm){
+    res.render('no-search-view.hbs', { user: req.user });
+    return;
+  }
+  const searchRegex = new RegExp(searchTerm, 'i');
+})
+
 
  module.exports = router;

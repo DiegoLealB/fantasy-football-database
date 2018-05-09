@@ -2,7 +2,7 @@ const Player        = require('../../models/player')
 const express       = require("express");
 const axios         = require('axios');
 const btoa          = require('btoa');
-
+const mongoose      = require('mongoose');
 
 axios({
   type: 'GET',
@@ -14,33 +14,19 @@ axios({
   }
 })
 .then(response => {
-  const allPlayers = [];
-  allPlayers.push(response.data.cumulativeplayerstats);
-  var playersArr = allPlayers[0].playerstatsentry;
-  console.log(playersArr[0].stats);
+  var playerStats = response.data.cumulativeplayerstats;
+  console.log(playerStats.playerstatsentry[0].stats)
   
-  playersArr.forEach(player => {
+  for (let i = 0; i < playerStats.playerstatsentry.length; i++) {
+    // console.log(playerStats.playerstatsentry[i].player.ID)
     const newPlayer = Player({
-      ID: player.ID,
-      name: player.FirstName + " " + player.LastName,
-      position: player.Position,
-      jerseyNumber: player.JerseyNumber,
-      team: team.Name, 
-      fumbles: stats.Fumbles['#text'], 
-      passAttempts: stats.PassAttempts['#text'],
-      passAvg: stats.PassAvg['#text'],
-      passCompletions: stats.PassCompletions['#text'],
-      passInt: stats.PassInt['#text'],
-      passTD: stats.PassTD['#text'],
-      QBRating: stats.QBRating['#text'],
-      recTD: stats.RecTD['#text'],
-      recYards: stats.RecYards['#text'],
-      receptions: stats.Receptions['#text'],
-      rushAttempts: stats.RushAttempts['#text'],
-      rushTD: stats.RushTD['#text'],
-      rushYards: stats.RushTD['#text'],
-      twoPtMade: stats.TwoPtMade['#text']
-    })
+      ID: playerStats.playerstatsentry[i].player.ID,
+      name: playerStats.playerstatsentry[i].player.FirstName + " "
+      + playerStats.playerstatsentry[i].player.LastName,
+      position: playerStats.playerstatsentry[i].player.Position,
+      jerseyNumber: playerStats.playerstatsentry[i].player.JerseyNumber,
+      stats: playerStats.playerstatsentry[i].stats
+    }) // Add team
     newPlayer.save((err) => {
       if (err) {
         res.render('dashboard', { message: "Sorry, something went wrong"})
@@ -48,7 +34,22 @@ axios({
         res.redirect("/dash");
       }
     });
-  });
-
-  })
+  }
+})
 .catch(err => {console.log(err)})
+
+
+// fumbles: playerStats.playerstatsentry[i].stats.Fumbles.text, 
+// passAttempts: playerStats.playerstatsentry[i].stats.PassAttempts.text,
+// passAvg: playerStats.playerstatsentry[i].stats.PassAvg.text,
+// passCompletions: playerStats.playerstatsentry[i].stats.PassCompletions.text,
+// passInt: playerStats.playerstatsentry[i].stats.PassInt['#text'],
+// passTD: playerStats.playerstatsentry[i].stats.PassTD['#text'],
+// QBRating: playerStats.playerstatsentry[i].stats.QBRating['#text'],
+// recTD: playerStats.playerstatsentry[i].stats.RecTD['#text'],
+// recYards: playerStats.playerstatsentry[i].stats.RecYards['#text'],
+// receptions: playerStats.playerstatsentry[i].stats.Receptions['#text'],
+// rushAttempts: playerStats.playerstatsentry[i].stats.RushAttempts['#text'],
+// rushTD: playerStats.playerstatsentry[i].stats.RushTD['#text'],
+// rushYards: playerStats.playerstatsentry[i].stats.RushTD['#text'],
+// twoPtMade: playerStats.playerstatsentry[i].stats.TwoPtMade['#text']
