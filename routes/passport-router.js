@@ -90,6 +90,7 @@ router.get('/player/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
 router.get('/players/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const searchTerm = req.query.playerSearchBar;
+  console.log(req.query.playerSearchBar);
   if (!searchTerm){
     res.render('no-search-view.hbs', { user: req.user });
     return;

@@ -10,7 +10,7 @@ axios({
   dataType: 'json',
   async: false,
   headers: {
-    "Authorization": "Basic " + btoa('diegolealb:3478561a')
+    "Authorization": "Basic " + btoa(process.env.username + ":" + process.env.password)
   }
 })
 .then(response => {

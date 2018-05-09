@@ -15,14 +15,12 @@ const passport      = require('passport');
 const LocalStrategy = require("passport-local").Strategy;
 const User          = require("./models/user");
 const bcrypt        = require("bcrypt");
-const MySportsFeeds = require('mysportsfeeds-node');
-const btoa          = require('btoa');
 const flash         = require("connect-flash");
 
 
 mongoose.Promise = Promise;
 mongoose
-.connect(process.env.MONGOURI, {useMongoClient: true})
+.connect(process.env.MONGODB_URI, {useMongoClient: true})
 .then(() => {
   console.log('Connected to Mongo!')
 }).catch(err => {
