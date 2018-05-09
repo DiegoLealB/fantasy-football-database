@@ -27,9 +27,6 @@ mongoose
   console.error('Error connecting to mongo', err)
 });
 
-const msf = new MySportsFeeds("1.2", true, null);
-msf.authenticate("diegolealb", "3478561a");
-
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
