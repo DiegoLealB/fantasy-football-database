@@ -1,0 +1,32 @@
+<div class="greeting">
+  <h1>Look at other peoples fantasy teams or create your own!</h1>
+  <form action="/team/new" method="GET">
+    <button class="btn create-team-btn">Create a new team</button>
+  </form>
+</div>
+
+<div class="flexbox-container">
+  {{list.isOwner}}
+  {{#each list}}
+  <div class="team-container">
+    <h3>Created by: {{this.Username}}</h3>
+    <h5>QB: {{this.QB}}</h5>
+    <h5>RB1: {{this.RB1}}</h5>
+    <h5>RB2: {{this.RB2}}</h5>
+    <h5>WR1: {{this.WR1}}</h5>
+    <h5>WR2: {{this.WR2}}</h5>
+    <h5>TE: {{this.RB1}}</h5>
+    <h5>FLEX: {{this.FLEX}}</h5>
+    <h5>K: {{this.K}}</h5>
+    <h5>OWNER       : {{this.isOwner}}</h5>
+    {{#if this.isOwner}}
+    <form action="/team/delete/{{this._id}}" method="POST">
+      <button class="btn delete-btn">Delete</button>
+    </form>
+    <form action="/team/edit/{{this._id}}" method="GET">
+      <button class="btn edit-btn">Edit</button>
+    </form>
+    {{/if }}
+  </div>
+  {{/each}}
+</div>

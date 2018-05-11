@@ -1,0 +1,47 @@
+<div class="greeting">
+  <h1>Edit Team</h1>
+  <form action="/team/update/{{team._id}}" method="POST">
+    <button class="btn submit-btn">Submit Changes</button>
+  </form>
+  <form action="/team/new" method="GET">
+    <button class="btn new-btn">Create a new team</button>
+  </form>
+</div>
+
+<span class="edit-player-container flexbox-container">
+
+    <div class="edit-field-container">
+      <h3>Quarterback: </h3>
+      <input type="text" name="QB" value="{{team.QB}}" class="edit-text-field">
+    </div>
+    <div class="edit-field-container">
+      <h3>Running Back 1: </h3>
+      <input type="text" name="RB1" value="{{team.RB1}}" class="edit-text-field">
+    </div>
+    <div class="edit-field-container">
+      <h3>Running Back 2: </h3>
+      <input type="text" name="RB2" value="{{team.RB2}}" class="edit-text-field">
+    </div>
+    <div class="edit-field-container">
+      <h3>Wide Receiver 1: </h3>
+      <input type="text" name="WR1" value="{{team.WR1}}" class="edit-text-field">
+    </div>
+    <div class="edit-field-container">
+      <h3>Wide Receiver 2: </h3>
+      <input type="text" name="WR2" value="{{team.WR2}}" class="edit-text-field">
+    </div>
+    <div class="edit-field-container">
+      <h3>Tight End: </h3>
+      <input type="text" name="TE" value="{{team.TE}}" class="edit-text-field">
+    </div>
+    <div class="edit-field-container">
+      <h3>Flex: </h3>
+      <input type="text" name="FLEX" value="{{team.FLEX}}" class="edit-text-field">
+    </div>
+    <div class="edit-field-container">
+      <h3>Kicker: </h3>
+      <input type="text" name="K" value="{{team.K}}" class="edit-text-field">
+    </div>
+
+</span>
+

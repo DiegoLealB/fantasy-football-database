@@ -1,0 +1,13 @@
+<div class="greeting">
+  <h1>Search results</h1>
+</div>
+
+<div class="search-list-container">
+  <ul>
+    {{#each results}}
+      <h3><li>
+        <a href="/player/{{this.PlayerID}}">{{this.FirstName}} {{this.LastName}}</a>
+      </li></h3>
+    {{/each}}
+  </ul>
+</div>

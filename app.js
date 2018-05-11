@@ -91,7 +91,7 @@ passport.use(new LocalStrategy({
 
 // default value for title local
 app.locals.title = 'Fantasy Football Cheat Sheet';
-
+// app.locals.isOwner = false;
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -99,6 +99,8 @@ const index = require('./routes/index');
 app.use('/', index);
 const passportRouter = require("./routes/passport-router");
 app.use('/', passportRouter);
+const altRoutes = require("./routes/alt-routes");
+app.use('/', altRoutes);
 
 module.exports = app;
  

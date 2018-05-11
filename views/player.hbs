@@ -1,5 +1,75 @@
-<h1>Howdy {{user.name}}</h1>
+
+<span class="player-basic-info">
+  <h1 class="greeting">
+    Full player information
+  </h1>
+  <div class="player-card">
+    <span class="heart-container">
+      <h2>{{player.FirstName}} {{player.LastName}}</h2>
+      <form action="/player/favorite/{{player.PlayerID}}" method="POST">
+        <input type="hidden" value="{{player.PlayerID}}" name="favorite">
+        <button class="heart"></button>
+      </form>
+    </span>
+    <ul>
+      <li>
+        <h3><u>Position:</u> {{player.Position}}</h3>
+      </li>
+      <li>
+        <h3><u>Number:</u> {{player.JerseyNum}}</h3>
+      </li>
+      <li>
+        <h3><u>Height:</u> {{player.Height}}</h3>
+      </li>
+      <li>
+        <h3><u>Weight:</u> {{player.Weight}}</h3>
+      </li>
+      <li>
+        <h3><u>Birthdate:</u> {{player.BirthDate}}</h3>
+      </li>
+      <li>
+        <h3><u>Age:</u> {{player.Age}}</h3>
+      </li>
+      <li>
+        <h3><u>Home Town:</u> {{player.BirthCity}}</h3>
+      </li>
+      <li>
+        <h3><u>Team:</u> {{player.TeamName}}</h3>
+      </li>
+      <li>
+        <h3><u>Team City:</u> {{player.TeamCity}}</h3>
+      </li>
+      <li>
+        <h3><u>Games Played:</u> {{player.GamesPlayed}}</h3>
+      </li>
+      <li>
+        <h3><u>Pass Yards:</u> {{player.PassYards}}</h3>
+      </li>
+      <li>
+        <h3><u>Pass Completions:</u> {{player.PassCompletions}}</h3>
+      </li>
+      <li>
+        <h3><u>Pass TD:</u> {{player.PassTD}}</h3>
+      </li>
+      <li>
+        <h3><u>Rush Yards:</u> {{player.RushYards}}</h3>
+      </li>
+      <li>
+        <h3><u>Rush Attempts:</u> {{player.RushAttempts}}</h3>
+      </li>
+      <li>
+        <h3><u>Rush TD:</u> {{player.RushTD}}</h3>
+      </li>
+      <li>
+        <h3><u>Receiving Yards:</u> {{player.RecYards}}</h3>
+      </li>
+      <li>
+        <h3><u>Receiving TD:</u> {{player.RecTD}}</h3>
+      </li>
+    </ul>
+    <a href="/dash" class="go-back-link">Go Back</a>
+  </div>
+</span>
 
 
 
-<h1></h1>

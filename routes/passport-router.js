@@ -1,6 +1,7 @@
 const express        = require("express");
 const router         = express.Router();
 const User           = require("../models/user");
+const Player         = require("../models/player")
 const bcrypt         = require("bcrypt");
 const bcryptSalt     = 10;
 const ensureLogin    = require("connect-ensure-login");
@@ -51,6 +52,9 @@ router.post("/signup", (req, res, next) => {
       password: hashPass,
       first,
       last,
+      teams: "",
+      favorites: "",
+      isOwner:false
     });
     
     newUser.save((err) => {
@@ -64,8 +68,7 @@ router.post("/signup", (req, res, next) => {
 });
 
 router.get("/login", (req, res, next) => {
-  res.render("login"
-  );
+  res.render("login");
 });
 
 router.post("/login", passport.authenticate("local", {
@@ -75,28 +78,10 @@ router.post("/login", passport.authenticate("local", {
   passReqToCallback: true,
 }));
 
-router.get("/dash", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("dashboard", { user: req.user });
-});
-
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect("/login");
 });
-
-router.get('/player/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  res.render('player', { user: req.user })
-});
-
-router.get('/players/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  const searchTerm = req.query.playerSearchBar;
-  console.log(req.query.playerSearchBar);
-  if (!searchTerm){
-    res.render('no-search-view.hbs', { user: req.user });
-    return;
-  }
-  const searchRegex = new RegExp(searchTerm, 'i');
-})
 
 
  module.exports = router;

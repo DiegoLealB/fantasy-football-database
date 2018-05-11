@@ -1,29 +1,65 @@
 <link rel="stylesheet" href="/javascripts/data.js">
 
-<h1 class="greeting">Hello {{user.first}} welcome to your fantasy football cheat sheet.</h1>
-<form action="/players/search" method="GET">
-  <input type="search" name="playerSearchBar" placeholder="Seach here...">
-  <button type="submit">Search</button>
-</form>
-
-<div class="list-container">
-  <h3>All players by name</h3>
-  <ul class="all-players"></ul>
-  {{!-- <button class="left-page"><</button>
-  <button class="right-page">></button> --}}
+<div class="greeting">
+  <h1>Hello {{user.first}}, welcome to your fantasy football cheat sheet.</h1>
 </div>
 
-<div class="list-container">
-  <h3>Top players by pass yards</h3>
-  <ul class="top-five-by-pass-yds"></ul>
+
+<div class="searchbar">
+  <h2>Search players by first or last name</h2>
+  <form action="/players/search" method="GET">
+    <input type="search" name="playerSearchBar" class="player-search-bar" placeholder="Seach here...">
+    <button type="submit" class="searchbar-btn btn">Search</button>
+  </form>
 </div>
 
-<div class="list-container">
-  <h3>Top players by rushing yards</h3>
-  <ul class="top-five-by-rush-yds"></ul>
-</div>
+<span class="dash-header">
+  <h1><i>...Or look for them by category</i></h1>
+</span>
 
-<div class="list-container">
-  <h3>Top players by receiving yards</h3>
-  <ul class="top-five-by-receiving-yds"></ul>
+<div class="flexbox-container">
+
+  <div class="extra-stats-container">
+
+    <h3 class="center">Top performers by category</h3>
+    <div class="list-container">
+      <h3>Passing yards leaders</h3>
+      <ul class="top-five-by-pass-yds"></ul>
+      <button class="prev-five-pass-btn page-btn">Back</button>
+      <button class="next-five-pass-btn page-btn">Next</button>
+    </div>
+
+    <div class="list-container">
+      <h3>Rushing yards leaders</h3>
+      <ul class="top-five-by-rush-yds"></ul>
+      <button class="prev-five-rush-btn page-btn">Back</button>
+      <button class="next-five-rush-btn page-btn">Next</button>
+    </div>
+
+    <div class="list-container">
+      <h3>Receiving yards leaders</h3>
+      <ul class="top-five-by-receiving-yds"></ul>
+      <button class="prev-five-receiving-btn page-btn">Back</button>
+      <button class="next-five-receiving-btn page-btn">Next</button>
+    </div>
+
+  </div>
+
+  <div class="all-players-container">
+    <h3>All players by name</h3>
+    <ul class="all-players"></ul>
+    <button class="prev-twenty-btn page-btn">Back</button>
+    <button class="next-twenty-btn page-btn">Next</button>
+  </div>
+
+  <span class="user-info-container">
+    <div class="favorite-list-container">
+      <h3>Favorited players</h3>
+      <ul class="favorited-players">
+        {{#each favorites}}
+          <li><a href="/player/{{this.PlayerID}}">{{this}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </span>
 </div>

@@ -3,24 +3,34 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"></script>
   </head>
   <body class="background">
-    <div class="navbar">
-        <img src="/images/logo.png" alt="football-logo" class="logo">
-        <h2 class="nav-title">Fantasy Football Cheat Sheet</h2>
-      <ul class="navbar-list">
-        {{#if user}}
-        <li class="navbar-list-items"><a href="/dash">Dashboard</a></li>
-        <li class="navbar-list-items"><a href="/logout">Logout</a></li>
-        {{else}}
-        <li class="navbar-list-items"><a href="/signup">Home</a></li>
-        <li class="navbar-list-items"><a href="/login">Login</a></li>
-        {{/if}}
-      </ul>
+    <div class="navbar-expand{-sm|-md|-lg|-xl}">
+      <div class="navbar">
+          <img src="/images/logo.png" alt="football-logo" class="logo">
+          <h2 class="nav-title"></h2>
+
+        <span class="dropdown">
+        <button class="dropdown-btn">Menu</button>
+          <div class="dropdown-content">
+            {{#if user}}
+            <a href="/dash" class="navbar-list-items">Home</a>
+            <a href="/team" class="navbar-list-items">Teams</a>
+            <a href="/logout" class="navbar-list-items">Logout</a>
+            {{else}}
+            <a href="/signup" class="navbar-list-items">Sign Up</a>
+            <a href="/login" class="navbar-list-items">Login</a>
+            {{/if}}
+          </div>
+        </span>
+      
+      </div>
     </div>
 
     <br><br>

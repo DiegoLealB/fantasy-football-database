@@ -5,7 +5,13 @@ const userSchema = new Schema({
   username: String,
   password: String,
   first: String,
-  last: String
+  last: String,
+  favorites: {type: [String], default: ""},
+  teams: {type: [String], default: ""},
+  isOwner: {type: Boolean, default: false}
+},
+{
+  usePushEach: true
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });

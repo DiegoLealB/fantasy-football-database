@@ -1,5 +1,17 @@
 body {
-  font: 14px 'Helvetica'; }
+  font: 14px 'Open Sans';
+  margin: 0px; }
+
+h1, h2, h3, h4 {
+  font-family: 'Raleway', sans-serif; }
+
+h5 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px; }
+
+div {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7); }
 
 a:link {
   text-decoration: none;
@@ -12,46 +24,55 @@ a:visited {
   color: #6169db; }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: bold;
   color: #449DFC; }
 
 .navbar {
   display: block;
   position: fixed;
-  background: #064283;
-  width: 100vw;
+  background: #0F2340;
+  width: 100%;
   height: 60px;
   left: 0;
   top: 0;
-  box-shadow: 1px 1px; }
+  box-shadow: 1px 1px;
+  margin-bottom: 20px; }
 
 .nav-title {
   text-align: center;
   color: white;
   margin: 15px; }
 
-.navbar-list {
-  position: fixed;
-  top: 0px;
-  right: 0px; }
-
 .navbar-list-items {
   float: left;
   list-style-type: none;
-  margin: 5px 10px;
+  margin: 0;
+  padding-top: 5px;
   text-decoration: none;
-  font-size: 20px; }
+  font-size: 20px;
+  width: 100px;
+  height: 20px;
+  text-align: left; }
+
+.navbar-list-items a:hover {
+  float: left;
+  list-style-type: none;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bolder;
+  width: 150px; }
 
 .background {
-  background-color: #FFF; }
+  background-color: #DDD; }
 
 .logo {
-  width: 70px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   position: fixed;
-  top: 10px;
-  left: 5%; }
+  top: 5px;
+  right: 5%; }
 
 .text-field {
   margin: 10px;
@@ -61,7 +82,7 @@ a:hover {
   height: 50px;
   border: 1px solid lightgray;
   border-radius: 5px;
-  box-shadow: 2px 2px; }
+  left: 0; }
 
 .login-field {
   display: block;
@@ -71,8 +92,7 @@ a:hover {
   width: 440px;
   height: 50px;
   border: 1px solid lightgray;
-  border-radius: 5px;
-  box-shadow: 2px 2px; }
+  border-radius: 5px; }
 
 .label {
   color: black;
@@ -97,9 +117,7 @@ a:hover {
   width: 500px;
   height: 350px;
   background-color: white;
-  border-radius: 10px;
-  border: 3px solid gray;
-  box-shadow: 2px 2px; }
+  border-radius: 8px; }
 
 .submit-button {
   width: 440px;
@@ -117,8 +135,8 @@ a:hover {
 
 .form-title {
   text-align: center;
-  padding: 0 0 20px 0;
-  border-bottom: 1px solid gray; }
+  padding: 10px 0;
+  margin: 10px; }
 
 .sign-up-error-message {
   width: 500px;
@@ -135,33 +153,353 @@ a:hover {
 
 .login-header {
   text-align: center;
-  border-bottom: 1px solid #000;
-  padding: 0 0 10px 0;
+  padding: 10px 0;
   margin: 10px; }
 
 .login-text {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 5px; }
 
 .no-search {
   text-align: center;
   color: white;
   display: block;
-  margin: 100px 0 0 0;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+  margin: 100px 0 0 0; }
 
 .list-container {
   width: 200px;
   border: 1px solid black;
   text-align: center;
-  border-radius: 5px;
-  margin: 10px;
-  float: left; }
+  border-radius: 4px;
+  background: white;
+  float: right;
+  margin: 20px 50px; }
 
 .greeting {
+  font: 'Arial';
   text-align: center;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -0.5px 0 darkgray, 0 0.5px darkgray, 0.5px 0 darkgray, 0 -0.5px darkgray;
+  color: white;
+  background-color: #194D81;
+  font-size: 20px;
+  padding: 50px 0 30px 0;
+  vertical-align: middle; }
+
+.heart {
+  background-color: red;
+  display: inline-block;
+  height: 30px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 30px;
+  border: none; }
+
+.heart:before, .heart:after {
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: 30px;
+  position: absolute;
+  width: 30px; }
+
+.heart:before {
+  top: -15px;
+  left: 0; }
+
+.heart:after {
+  left: 15px;
+  top: 0; }
+
+.heart-container {
+  position: relative; }
+
+.extra-stats-container {
+  float: left;
+  margin: 25px;
+  width: 300px;
+  background-color: white; }
+
+.all-players-container {
+  width: 600px;
+  text-align: center;
+  border-radius: 4px;
+  background: white;
+  display: block;
+  margin: 25px;
+  float: left;
+  line-height: 30px; }
+
+ul {
+  text-align: left; }
+
+.all-players-container ul {
+  column-count: 3;
+  column-gap: 27px;
+  list-style-position: outside;
+  text-align: left; }
+
+.page-btn {
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3778be;
+  color: white; }
+
+.page-btn:hover {
+  background-color: #428eb1; }
+
+.container-container {
+  display: block;
+  width: 98%;
+  margin: 0 1%;
+  background-color: white;
+  border-radius: 5px; }
+
+.team-container {
+  width: 200px;
+  background: white;
+  margin: 10px 20px;
+  padding: 10px; }
+
+.all-players li {
+  margin-top: 3px; }
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin: 5px;
+  background-color: #3778be; }
+
+.btn:hover {
+  background-color: #428eb1;
+  color: #e0e0e0; }
+
+.searchbar-btn {
+  background-color: #3778be;
+  height: 40px;
+  width: 100px; }
+
+.searchbar {
+  display: block;
+  margin: 0 auto;
+  background-color: #95b1d6;
+  padding: 30px 0;
+  text-align: center;
+  border-bottom: 1px solid gray; }
+
+.player-search-bar {
+  width: 300px;
+  height: 50px;
+  font-size: 18px; }
+
+.dash-header {
+  text-align: center; }
+
+.center {
+  text-align: center; }
+
+.flexbox-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+
+.player-card {
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 5px;
+  width: 60%;
+  margin: 0 20%;
+  text-align: center;
+  background-color: white; }
+
+.player-card ul {
+  column-count: 2;
+  column-gap: 30px;
+  list-style: disc;
+  text-align: left; }
+
+.go-back-link {
+  font-size: 15px;
   color: white;
   display: block;
-  margin: 30px 10px 10px 10px; }
+  margin: 0 auto; }
+
+.player-card li:first-child {
+  margin-top: -15px; }
+
+.edit-text-field {
+  margin: 10px;
+  font-size: 30px;
+  color: gray;
+  width: 300px;
+  height: 50px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  left: 0; }
+
+.edit-field-container {
+  margin: 10px;
+  background-color: white;
+  text-align: center; }
+
+.favorite-list-container {
+  width: 200px;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 4px;
+  background: white;
+  float: left;
+  margin: 25px 50px; }
+
+ul > li:first-child {
+  margin-top: -1px; }
+
+.all-players li {
+  width: 150px; }
+
+.all-players {
+  padding: 0 5px 0 60px; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0F2340;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1; }
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #0F2340;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 18px; }
+
+.dropdown-content a:hover {
+  background-color: #3778be; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+
+.dropdown:hover .dropdown-btn {
+  background-color: #428eb1; }
+
+.dropdown {
+  position: fixed;
+  left: 2%;
+  top: 5px;
+  float: right; }
+
+.dropdown-btn {
+  background-color: #030a11;
+  border: none;
+  height: 50px;
+  width: 100px;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 20px; }
+
+.hero-img {
+  background-image: url("/images/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 800px; }
+
+.hero-container {
+  width: auto;
+  margin: 0 auto;
+  position: relative; }
+
+li h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400; }
+
+.create-team-btn {
+  font-size: 20px;
+  height: 50px;
+  width: 150px; }
+
+.delete-btn, .edit-btn {
+  float: left;
+  margin: 10px 5px 5px 20px;
+  width: 70px;
+  height: 30px; }
+
+.submit-btn, .new-btn {
+  float: left;
+  position: relative;
+  left: 37%;
+  height: 20px;
+  width: 140px;
+  font-size: 14px; }
+
+.create-container {
+  width: 600px;
+  display: block;
+  margin: 20px auto;
+  background-color: white;
+  padding: 10px 0; }
+
+.create-field-container {
+  width: 350px;
+  background-color: white;
+  display: block;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  padding-top: 10px;
+  border: 1px solid lightgray; }
+
+.create-field-container h4 {
+  margin: 0px;
+  padding-top: 10px; }
+
+.new-submit-btn {
+  height: 30px;
+  width: 100px; }
+
+.greeting a {
+  color: white;
+  font-weight: 400; }
+
+.greeting a:hover {
+  color: white;
+  font-weight: 700; }
+
+.search-list-container {
+  text-align: center;
+  border-radius: 4px;
+  background: white;
+  display: block;
+  width: 300px;
+  margin: 10px auto; }
+
+.search-list-container ul {
+  margin: 10px;
+  padding: 10px 20px; }
+
+.hero-text {
+  color: white;
+  text-align: center;
+  padding-top: 400px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  font-size: 50px; }
+
+a[class$=main-signup-btn] {
+  color: white;
+  font-size: 30px;
+  padding: 5px;
+  width: 250px;
+  text-align: center;
+  display: block;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */
