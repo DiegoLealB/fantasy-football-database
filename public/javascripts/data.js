@@ -18,9 +18,11 @@ $(document).ready(function() {
       let playerStats = response.data.cumulativeplayerstats;
       $('.all-players').empty();
       for (var i = number; i < number + 60; i++) {
-        playersArr.push(playerStats.playerstatsentry[i].player.FirstName + " " + playerStats.playerstatsentry[i].player.LastName);
+        playersArr.push(playerStats.playerstatsentry[i].player.FirstName 
+          + " " + playerStats.playerstatsentry[i].player.LastName);
 
-        $('.all-players').append(`<li><a href='/player/${playerStats.playerstatsentry[i].player.ID}'>${playersArr[i]}</a></li>`)
+        $('.all-players').append(`<li><a href='/player/${playerStats.playerstatsentry[i].player.ID}'>
+        ${playersArr[i]}</a></li>`)
       }
     })
     .catch(err => {console.log(err)})
