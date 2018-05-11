@@ -7,7 +7,7 @@ const userSchema = new Schema({
   first: String,
   last: String,
   favorites: {type: [String], default: ""},
-  teams: {type: [String], default: ""},
+  teams: {type: []},
   isOwner: {type: Boolean, default: false}
 },
 {

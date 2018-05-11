@@ -12,7 +12,6 @@ var favoritesArr     = [];
 
 
 router.get("/dash", ensureLogin.ensureLoggedIn(), (req, res) => {
-  // console.log(req.user.favorites)
   if (req.user.favorites.length > 0) {
     favoritesArr = []
     req.user.favorites.forEach(function(favorite) {
@@ -43,7 +42,6 @@ router.post('/player/favorite/:id', (req, res, next) =>{
       console.log("saved user is: ", user)
       res.redirect('/dash')
     })
-    // console.log("found player is: ", foundPlayer)
   })
 })
 
@@ -82,12 +80,13 @@ router.get('/team', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   .then(teams => {
     let data = {};
     data.list = teams;
-    // teams.forEach((team) => {
-    //   console.log(team)
-    //   if(team.Username.equals(req.user.username)){
-    //     team.isOwner = true;
-    //   }
-    // })
+    teams.forEach((team) => {
+      for (let i = 0; i < req.user.teams.length; i++){
+        if(team.Username === req.user.username){
+          team.isOwner = true;
+        }
+      }
+    })
     res.render('team', { list: teams, user: req.user } )
   })
   .catch(err => {console.log(err)})
@@ -107,7 +106,7 @@ router.get('/team/new', ensureLogin.ensureLoggedIn() ,function(req, res) {
 })
 
 router.post('/team/create', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  // var isOwner = false;
+  console.log(req.body)
   const newTeam = new Team({
       Username: req.user.username,
       QB: req.body.QB,
@@ -120,12 +119,10 @@ router.post('/team/create', ensureLogin.ensureLoggedIn(), (req, res, next) => {
       K: req.body.K,
       isOwner: false
     })
-  newTeam.isOwner = true; 
   newTeam.save()
-  console.log(req.user.isOwner)
   User.findById(req.user._id)
   .then(user => {
-    console.log(user.isOwner)
+    newTeam.isOwner = true;
     user.teams.push(newTeam);
     user.save()
     res.redirect('/team')
@@ -141,7 +138,6 @@ router.get('/team/edit/:id', (req, res, next) => {
 })
 
 router.post('/team/update/:id',ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  console.log("the body is:", req.body)
   Team.findById(req.params.id)
   .then(teamFromDb => {
     teamFromDb.QB = req.body.QB;

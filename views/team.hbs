@@ -18,7 +18,6 @@
     <h5>TE: {{this.RB1}}</h5>
     <h5>FLEX: {{this.FLEX}}</h5>
     <h5>K: {{this.K}}</h5>
-    <h5>OWNER       : {{this.isOwner}}</h5>
     {{#if this.isOwner}}
     <form action="/team/delete/{{this._id}}" method="POST">
       <button class="btn delete-btn">Delete</button>

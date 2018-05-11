@@ -15,6 +15,8 @@ router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   const first    = req.body.first;
+  const salt     = bcrypt.genSaltSync(bcryptSalt);
+  const hashPass = bcrypt.hashSync(password, salt);
   const last     = req.body.last;
 
   if (username === "") {
@@ -43,9 +45,6 @@ router.post("/signup", (req, res, next) => {
       });
       return;
     }
-
-    const salt     = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
     
     const newUser = User({
       username,
@@ -54,7 +53,7 @@ router.post("/signup", (req, res, next) => {
       last,
       teams: "",
       favorites: "",
-      isOwner:false
+      isOwner: false,
     });
     
     newUser.save((err) => {
