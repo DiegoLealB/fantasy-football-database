@@ -12,8 +12,8 @@ var favoritesArr     = [];
 
 
 router.get("/dash", ensureLogin.ensureLoggedIn(), (req, res) => {
+  favoritesArr = [];
   if (req.user.favorites.length > 0) {
-    favoritesArr = []
     req.user.favorites.forEach(function(favorite) {
       Player.findOne({PlayerID: favorite})
       .then(player => {

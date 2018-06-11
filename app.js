@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+// need to use node version 7.2.0 to run ($ nvm use 7.2.0)
 const bodyParser    = require('body-parser');
 const cookieParser  = require('cookie-parser');
 const express       = require('express');

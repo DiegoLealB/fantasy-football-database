@@ -1,11 +1,9 @@
 <div class="greeting">
   <h1>Edit Team</h1>
-  <form action="/team/update/{{team._id}}" method="POST">
-    <button class="btn submit-btn">Submit Changes</button>
-  </form>
   <form action="/team/new" method="GET">
     <button class="btn new-btn">Create a new team</button>
   </form>
+  <form action="/team/update/{{team._id}}" method="POST">
 </div>
 
 <span class="edit-player-container flexbox-container">
@@ -42,6 +40,8 @@
       <h3>Kicker: </h3>
       <input type="text" name="K" value="{{team.K}}" class="edit-text-field">
     </div>
+    <button class="btn submit-btn">Submit Changes</button>
+  </form>
 
 </span>
 
